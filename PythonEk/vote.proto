@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+service VoteService {
+  rpc getVoteData(VoteRequest) returns (VoteResponse) {}
+}
+
+message VoteRequest {
+  string VoteId = 1;
+}
+
+message CandidateData {
+  string candidateName = 1;
+  int32 votes = 2;
+}
+
+message VoteResponse {
+  string VoteId = 1;
+  repeated CandidateData candidates = 2;  // Liste der Kandidaten
+}
